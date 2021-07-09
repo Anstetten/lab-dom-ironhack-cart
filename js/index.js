@@ -35,8 +35,11 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  console.log('The target in remove is:', target);
-  //... your code goes here
+  let productToRemove= target.closest('.product');
+  productToRemove.remove();
+
+  calculateAll();
+  
 }
 
 // ITERATION 5
@@ -48,6 +51,12 @@ function createProduct() {
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
+
+  const removeButtons = document.getElementsByClassName('btn btn-remove');
+console.log(removeButtons);
+  Array.from(removeButtons).forEach((button)=>{
+    button.onclick=removeProduct;
+  })
 
   //... your code goes here
 });
