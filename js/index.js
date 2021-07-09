@@ -20,14 +20,15 @@ function updateSubtotal(product) {
 function calculateAll() {
 
   let products = document.getElementsByClassName('product');
+  let totalPrice=0;
+  let totalPriceElement= document.querySelector('#total-value span')
   console.log(products);
   Array.from(products).forEach(product => {
-    updateSubtotal(product);    
+    totalPrice+=updateSubtotal(product);    
   });
 
+  totalPriceElement.innerHTML=totalPrice;
 
-  // ITERATION 3
-  //... your code goes here
 }
 
 // ITERATION 4
